@@ -1,7 +1,7 @@
 tenerife
 ========
 
-An old ruby + gosu game sketch involving parallax graphics and random word generation. 
+An old [ruby](https://en.wikipedia.org/wiki/Ruby_\(programming_language\)) + [gosu](http://www.libgosu.org/) game sketch involving [parallax](https://en.wikipedia.org/wiki/Parallax) graphics and random word generation. 
 
 <img src="http://i.imgur.com/eYjF3yT.png" title="Beautiful, hand-drawn love"/>
 
