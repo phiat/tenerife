@@ -54,21 +54,21 @@ class ScrollMap
     @bgx,@bgy = 0, 0
     @fgx,@fgy = 0, 0
     @fg2x,@fg2y = 0, 0 
-    @frame = Gosu::Image.new(@window,"windowFrame.png",false)
-    @bg = Layer.new(@window,"bg6.png",0,0,1,1,0)
-    @fg = Layer.new(@window,"fg.png",0,0,2,1.1,0) 
-    @fg2 = Layer.new(@window,"fg2.png",0,0,4,1.2,0) 
+    @frame = Gosu::Image.new(@window,"resources/windowFrame.png",false)
+    @bg = Layer.new(@window,"resources/bg6.png",0,0,1,1,0)
+    @fg = Layer.new(@window,"resources/fg.png",0,0,2,1.1,0) 
+    @fg2 = Layer.new(@window,"resources/fg2.png",0,0,4,1.2,0) 
     @layers = [@bg,@fg,@fg2,
-               Layer.new(@window,"fg3.png",0,0,3,1.3,0),
-               Layer.new(@window,"fg4.png",0,0,4.5,1.4,0),
-               Layer.new(@window,"fg5.png",0,0,5,2,0),
-               Layer.new(@window,"fg6.png",0,0,5.5,2.4,0),
-               Layer.new(@window,"fg7.png",0,0,6,1,0.3) , # mist 
-               Layer.new(@window,"fg8.png",0,0,7,2,0,0.1),  # mist2 
-               Layer.new(@window,"fg9.png",0,-400,2,0.5,0,0),
-               Layer.new(@window,"fg10.png",0,-400,3,1.5,0,0) ]
-    @clouds = [Cloud.new(@window,"cloud1.png",100,20,1), 
-               Cloud.new(@window,"cloud2.png",200,100,2)]
+               Layer.new(@window,"resources/fg3.png",0,0,3,1.3,0),
+               Layer.new(@window,"resources/fg4.png",0,0,4.5,1.4,0),
+               Layer.new(@window,"resources/fg5.png",0,0,5,2,0),
+               Layer.new(@window,"resources/fg6.png",0,0,5.5,2.4,0),
+               Layer.new(@window,"resources/fg7.png",0,0,6,1,0.3) , # mist 
+               Layer.new(@window,"resources/fg8.png",0,0,7,2,0,0.1),  # mist2 
+               Layer.new(@window,"resources/fg9.png",0,-400,2,0.5,0,0),
+               Layer.new(@window,"resources/fg10.png",0,-400,3,1.5,0,0) ]
+    @clouds = [Cloud.new(@window,"resources/cloud1.png",100,20,1), 
+               Cloud.new(@window,"resources/cloud2.png",200,100,2)]
     @cloudsx = 0 
     
   end                                                                                
@@ -77,17 +77,17 @@ class ScrollMap
       r = rand
       if r > 0.85                  
         if r > 0.98
-          @clouds.push(Cloud.new(@window,"cloud1.png",-800,(rand*200)+50,(rand*1.5)+1,0,(rand*3)+1))
+          @clouds.push(Cloud.new(@window,"resources/cloud1.png",-800,(rand*200)+50,(rand*1.5)+1,0,(rand*3)+1))
         elsif r > 0.96
-          @clouds.push(Cloud.new(@window,"cloud2.png",-800,(rand*200)+50,(rand*1.5)+1,0,(rand*3)+1))
+          @clouds.push(Cloud.new(@window,"resources/cloud2.png",-800,(rand*200)+50,(rand*1.5)+1,0,(rand*3)+1))
         elsif r > 0.94
-          @clouds.push(Cloud.new(@window,"cloud2.png",-800,(rand*100)+20,(rand*1.5)+1,0,2))
+          @clouds.push(Cloud.new(@window,"resources/cloud2.png",-800,(rand*100)+20,(rand*1.5)+1,0,2))
         elsif r > 0.92
-          @clouds.push(Cloud.new(@window,"cloud4.png",-800,(rand*100)+20,(rand*1.2)+1,0,2))
+          @clouds.push(Cloud.new(@window,"resources/cloud4.png",-800,(rand*100)+20,(rand*1.2)+1,0,2))
         elsif r > 0.90
-          @clouds.push(Cloud.new(@window,"cloud4.png",-800,(rand*100)+20,(rand*1.2)+1,0,2))
+          @clouds.push(Cloud.new(@window,"resources/cloud4.png",-800,(rand*100)+20,(rand*1.2)+1,0,2))
         else
-          @clouds.push(Cloud.new(@window,"cloud6.png",-800,(rand*200)+50,(rand*1.5)+1,0,(rand*3)+1))
+          @clouds.push(Cloud.new(@window,"resources/cloud6.png",-800,(rand*200)+50,(rand*1.5)+1,0,(rand*3)+1))
         end
         
       end
@@ -128,11 +128,11 @@ class Player
     @yV = 0
     @yA = 3.9                                
     @jumping = false
-    @images = [Gosu::Image.new(@window,"slickcat_r.png"),Gosu::Image.new(@window,"slickcat_l.png")]
+    @images = [Gosu::Image.new(@window,"resources/slickcat_r.png"),Gosu::Image.new(@window,"resources/slickcat_l.png")]
     @image = @images[0]
     @score = 0     
     @words = [] 
-    @popSound = Gosu::Sample.new(@window,"pop.wav")
+    @popSound = Gosu::Sample.new(@window,"resources/pop.wav")
   end  
   def playPop
     @popSound.play
@@ -291,14 +291,14 @@ class Tenerife < Gosu::Window
     @player = Player.new(self,400,300)
     @wordList = WorldList.new
     populateBoxes(30)
-    @windSound = Gosu::Song.new(self,"windy.wav").play(true)
+    @windSound = Gosu::Song.new(self,"resources/windy.wav").play(true)
     @hud = Hud.new(self) 
-    @endImage = Gosu::Image.new(self,"endImage.png",false)
+    @endImage = Gosu::Image.new(self,"resources/endImage.png",false)
     @quitting = false
   end
   def populateBoxes(i)   
     @boxes = []
-    i.times { @boxes.push(Box.new(self,"box3.png",rand*5000 - 2500,rand*400 + 20))}
+    i.times { @boxes.push(Box.new(self,"resources/box3.png",rand*5000 - 2500,rand*400 + 20))}
   end
   def update
     @hud.update       
